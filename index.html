@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Md. Sohanur Rahman Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #39dae670, #3cc199);
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header.header {
+      text-align: center;
+      padding: 10px;
+      background: darkseagreen;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: darkcyan;
+      padding: 1rem;
+      gap: 2rem;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      position: relative;
+      font-size: 20px;
+    }
+
+    .navbar a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #333;
+      left: 0;
+      bottom: -4px;
+      transition: 0.3s;
+    }
+
+    .navbar a:hover::after {
+      width: 100%;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 60px 20px 30px;
+      animation: fadeSlide 2s ease-in-out;
+    }
+
+    .intro-text {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #004d40;
+      animation: textPop 1.5s ease-in-out;
+    }
+
+    .intro-subtext {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #222;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes textPop {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .section p {
+      font-size: 15px;
+      text-align: justify;
+    }
+
+    .profile {
+      display: block;
+      margin: 1rem auto;
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+     
+      
+      padding: 5px;
+      background-color: solid black;
+      object-fit: cover;
+    }
+
+    
+    
+
+   
+
+    .edu-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .edu-images img {
+      width: 250px;
+      height: auto;
+      border: 2px solid black;
+      padding: 5px;
+      border-radius: 6px;
+      background: darkgray;
+    }
+
+    .edu-images p {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .skill-list li {
+      background: paleturquoise;
+      padding: 0.5rem 1rem;
+      border-radius: 7px;
+      transition: background 0.3s;
+    }
+
+    .skill-list li:hover {
+      background: black;
+      color: #f0f0f0;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    .social-links img{
+        border: 2px solid black;
+        border-radius: 50%;
+        text-align: justify;
+    }
+
+    .social-links a:hover {
+      color: #0077cc;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: black;
+      color:#f0f0f0;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .footer:hover {
+      background-color: #333;
+      color:#fff;
+      font-weight: bold;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .school, .college, .varsity {
+      background-color: #3cc199;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 10px;
+    }
+
+    .school p, .college p, .varsity p {
+      color: #333;
+      text-align: justify;
+      font-size: 15px;
+      padding: 10px 8px;
+    }
+
+    .edu h4 {
+      margin: 60px 0 20px;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .social-links img {
+      width: 40px;
+      height: 40px;
+      border: 3px solid black;
+      border-radius: 50%;
+    }
+
+    .phone-tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .phone-tooltip .tooltip-text {
+      visibility: hidden;
+      width: 140px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 14px;
+    }
+
+    .phone-tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .profile {
+        height: 150px;
+        width: 150px;
+      }
+
+      .skill-list {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-links {
+        flex-direction: column;
+      }
+
+      .navbar a {
+        font-size: 16px;
+      }
+    }
+    .about {
+        background-color:#3cc199;
+        color:solid black;
+        padding:10px;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+    .section h2{
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+   .custom{     
+  border: none;          
+  height: 4px;           
+  background-color: #333; 
+  margin: 30px 0;         
+  width: 100%;            
+  border-radius: 2px;     
+}
+#projects {
+  padding: 50px 20px;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+.project-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #00796B;
+}
+
+.project-card p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.project-card a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background-color: #00796B;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.project-card a:hover {
+  background-color: #004d40;
+}
+header:hover{
+    background-color: red;
+    color:#fff;
+}
+.navbar:hover{
+    background-color: #0077cc;
+}
+.navbar a:hover{
+    color:purple;
+    font-weight:bold;
+}
+.intro-subtext{
+    font-weight: bold;
+    font-size: 35px;
+}
+.edu h4{
+    font-size: 40px;
+    font-weight: bold;
+}
+.edu h4:hover{
+    background-color: green;
+    padding:10px 5px;
+}
+.section-title{
+    text-align: center;
+}
+.section h2:hover{
+    background-color: green;
+    padding:10px 5px;
+
+}
+.section-title:hover{
+    background-color: green;
+    padding:10px 5px;
+   
+
+}
+.prjects{
+    background-color:rgba(127, 236, 255, 0.276);
+}
+.project-card1{
+    background-color: lightskyblue;
+    border: 3px solid black;
+    border-radius: none;
+    box-shadow: 4px 3px 2px black;
+    padding:20px 0;
+    width:300px;
+    height:300px;
+  
+}
+.project-card2{
+    background-color: lightskyblue;
+    border: 3px solid black;
+    border-radius: none;
+    box-shadow: 4px 3px 2px black;
+    padding:20px 0;
+    width:300px;
+    height:300px;
+}
+    .project-card3{
+    background-color: lightskyblue;
+    border: 3px solid black;
+    border-radius: none;
+    box-shadow: 4px 3px 2px black;
+    padding:20px 0;
+    width:300px;
+    height:300px;
+    }
+
+
+
+.project-card1:hover{
+    box-shadow:10px 7px 5px black;
+    
+}
+.project-card img{
+    box-sizing: border-box;
+      height:300px;
+    width:300px;
+  
+    padding: 30px 20px;
+    margin:20px 0px;
+}
+.project-card2 figcaption{
+    font-weight: bold;
+    font-size: 12px;
+    text-align:left;
+}
+.project-card2 h6{
+    font-size: 13px;
+    padding:0px 0px;
+   
+    text-align: justify;
+    font-weight: bold;
+}
+.edu-images p{
+    font-weight: bold;
+    font-size: 30px;
+}
+.project-card2 img{
+    height:160px;
+    width:160px;
+    margin: 0 auto;
+    padding:10px;
+   margin-right: 20px;
+}
+.project-card2:hover{
+    box-shadow:10px 7px 5px black;
+    
+}
+.project-card3:hover{
+    box-shadow:10px 7px 5px black;
+    
+}
+.project-card1 a{
+    font-size: 30px;
+}
+.project-card3 a{
+    font-size: 30px;
+}
+
+
+
+
+      
+
+    
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <h1>Md. Sohanur Rahman</h1>
+  </header>
+
+  <nav class="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#skills">Learnings & Skills</a>
+    <a href="#contact">Contact Me</a>
+  </nav>
+
+  <section class="intro">
+    <h2 class="intro-text">Hi, I'm Sohan 👋</h2>
+    <p class="intro-subtext">Welcome to my world of code, creativity & curiosity.</p>
+  </section>
+ 
+
+  <section id="home" class="section">
+    <img src="sohan.34.jpg" alt="Profile Photo" class="profile">
+    <h2>Welcome to My Portfolio</h2>
+    
+    <hr class="custom">
+   
+    
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <hr class="custom">
+    <p>
+      <strong>Name:</strong> Md. Sohanur Rahman<br>
+      <strong>Father's Name:</strong> Md. Kamrul Islam<br>
+      <strong>Mother's Name:</strong> Mst. Rohima Khatun<br>
+      <strong>Village:</strong> Panti<br>
+      <strong>Upazilla:</strong> Kumarkhali<br>
+      <strong>Zilla:</strong>Kushtia<br>
+      <strong>Nationality:</strong> Bangladeshi<br>
+      <strong>Religion:</strong> Islam<br>
+      <strong>Date of Birth:</strong> 20/03/2003
+    </p>
+    <div class="about"><p><p>I am a student of KUET, I want to seek knowledge in Python, HTML, CSS, GitHub. I am passionate about learning new technologies and continuously expanding my skills in areas like Python, CSS, HTML, and embedded systems. Currently studying at KUET, I actively explore various learning platforms such as W3Schools and YouTube tutorials. I believe that learning never stops, and I am always eager to improve my understanding of both frontend and backend development. I started with basic web design using HTML and CSS, then moved into programming languages like Python and C++, and now I'm learning how to work with microcontrollers like ESP32 and Arduino. Through platforms like GitHub, I practice version control and collaborate on small projects. My goal is to gain strong, practical skills that help me build real-world applications and contribute to open-source projects. Learning from different schools and online resources has helped me shape a dynamic, self-driven approach to education and personal growth.</p></p>
+        </div>
+
+    <div class="edu"><h4>Education</h4></div>
+      <hr class="custom">
+
+    <div class="school">
+      <h3>School Life</h3>
+      <p>I studied at <strong>Panti Secondary School</strong>. This is where everything started. Friends, teachers, and those days gave me the foundation I still carry today.</p>
+      <div class="edu-images">
+        <img src=".school.jpeg" alt="Panti School">
+        <p>Panti Secondary School</p>
+      </div>
+    </div>
+
+    <div class="college">
+      <h3>College Life</h3>
+     
+      <p>College life taught me discipline and focus. I spent time mastering subjects like Math & Physics & Chemistry to get into engineering. It was very much  challenging but rewarding.</p>
+       <div class="edu-images">
+        <img src="clg.jpg" alt="KGC">
+        <p>Kushtia Govt. College </p>
+    </div>
+    </div>
+
+    <div class="varsity">
+      <h3>University Life</h3>
+      <p>Now I’m at <strong>KUET</strong> — learning every day, working on real things like Python, Arduino, and web development. This place is turning me into who I want to be.</p>
+      <div class="edu-images">
+        <img src=".kuet.jpeg" alt="KUET">
+        <p>Khulna University of Engineering & Technology (KUET)</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Learnings & Skills</h2>
+      <hr class="custom">
+    <ul class="skill-list">
+      <li>C</li>
+      <li>C++</li>
+      <li>Python</li>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>GitHub</li>
+      <li>Arduino</li>
+      <li>Canva</li>
+      <li>Blender (beginner)</li>
+      <li>Photoshop (beginner)</li>
+      <li>Illustrator (beginner)</li>
+    </ul>
+  </section>
+  <section class="projects">
+  <h2 class="section-title">My Projects</h2>
+  <div class="projects-container">
+
+    <div class="project-card1">
+      <h3>Personal Portfolio Website</h3>
+      <p>A fully responsive portfolio site built using HTML, CSS, and a touch of animation — you're seeing it right now!</p>
+      <a href="https://sohan34654.github.io" target="_blank">View Live</a>
+    </div>
+
+    <div class="project-card2">
+        <h6>
+The ESP32 reads values from its touch-sensitive pins (like T0), and if the value drops below a threshold, it turns on the LED</h6>
+        <figure>
+  <img src="esp.32.png" alt="ESP32 Touch Sensor Circuit">
+  <figcaption>Figure: Circuit diagram for ESP32 touch sensor LED control</figcaption>
+</figure>
+      
+   
+      
+      
+
+      
+    </div>
+
+    
+    <div class="project-card3"  >
+  <h3>Number Guessing Game (Python)</h3>
+  <p>A simple game where the computer picks a number and you try to guess it. The computer will guide you if your guess is too high or too low.</p>
+  <a href="python.34.py" target="_blank">Python game code</a>
+</div>
+</div>
+
+    </div>
+
+  </div>
+</section>
+
+  
+
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
+      <hr class="custom">
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/16gsytQEfA/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="mailto:rahman2127034@stud.kuet.ac.bd"><i class="fas fa-envelope"></i> Gmail</a>
+      <a href="https://github.com/Sohan34654" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <div class="phone-tooltip">
+        <img src="phone.png" alt="Phone">
+        <span class="tooltip-text">Call Me  +8801627893179</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Md. Sohanur Rahman. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+
+
+
+
